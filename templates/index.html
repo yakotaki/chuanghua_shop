@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}{{ "窗花手工艺小店" if lang=="zh" else "Chuanghua Craft Shop" }}{% endblock %}
+
+{% block content %}
+
+<section class="mb-4">
+  <div class="paper-card p-3">
+    <div class="row g-3 align-items-center">
+      <div class="col-lg-8">
+        <div class="fw-semibold mb-1">{{ "关于窗花" if lang=="zh" else "About Chuanghua" }}</div>
+        <div class="text-secondary small">
+          {% if lang=="zh" %}
+            窗花是中国传统剪纸艺术的一种形式，用于节日装饰、祝福与家居美学。这里展示的是一个“可接单”的独立站演示：可浏览、下单、留言，并带后台管理。
+          {% else %}
+            Chuanghua is a traditional Chinese paper-cut art for festivals, blessings, and home aesthetics. This is a working demo shop: browse, order, message, with admin management.
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a class="btn btn-outline-primary" href="#message">{{ "我要定制 / 留言" if lang=="zh" else "Custom order / Message" }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-4">
+  <div class="d-flex justify-content-between align-items-end mb-2">
+    <h2 class="h5 fw-bold mb-0">{{ "作品目录" if lang=="zh" else "Catalog" }}</h2>
+    <div class="small text-secondary">{{ (products|length) }} {{ "件作品" if lang=="zh" else "items" }}</div>
+  </div>
+
+  <div class="row g-3">
+    {% for p in products %}
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card paper-product h-100">
+          {% set imgs = p.images or [] %}
+          {% if imgs|length > 0 %}
+            <img class="card-img-top" src="{{ url_for('static', filename=STATIC_IMG_PREFIX + imgs[0]) }}" alt="">
+          {% else %}
+            <div class="paper-placeholder d-flex align-items-center justify-content-center">
+              <div class="text-secondary small">{{ "暂无图片" if lang=="zh" else "No image" }}</div>
+            </div>
+          {% endif %}
+
+          <div class="card-body">
+            <div class="fw-semibold">
+              {{ p.title_zh if lang=="zh" else p.title_en }}
+            </div>
+            <div class="text-secondary small mb-2">
+              {{ p.short_zh if lang=="zh" else p.short_en }}
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="paper-price">¥{{ p.price }}</div>
+              <a class="btn btn-sm btn-outline-secondary"
+                 href="{{ url_for('product', slug=p.slug, lang=lang) }}">
+                {{ "查看" if lang=="zh" else "View" }}
+              </a>
+            </div>
+
+            <form class="mt-2 d-flex gap-2" method="post" action="{{ url_for('cart_add', lang=lang) }}">
+              <input type="hidden" name="slug" value="{{ p.slug }}">
+              <input class="form-control form-control-sm" type="number" name="qty" value="1" min="1" max="99" style="max-width:90px;">
+              <button class="btn btn-sm btn-primary flex-grow-1" type="submit">
+                {{ "加入购物车" if lang=="zh" else "Add to cart" }}
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="message" class="mt-5">
+  <h2 class="h5 fw-bold mb-2">{{ "留言 / 定制需求" if lang=="zh" else "Message / Custom request" }}</h2>
+  <div class="paper-card p-3">
+    <form method="post" action="{{ url_for('message', lang=lang) }}">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label small">{{ "姓名（可选）" if lang=="zh" else "Name (optional)" }}</label>
+          <input class="form-control" name="name" placeholder="{{ '如：王先生' if lang=='zh' else 'e.g., Alex' }}">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label small">{{ "联系方式（可选）" if lang=="zh" else "Contact (optional)" }}</label>
+          <input class="form-control" name="contact" placeholder="{{ '微信/手机号/邮箱' if lang=='zh' else 'WeChat/Phone/Email' }}">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label small">{{ "定制主题（可选）" if lang=="zh" else "Theme (optional)" }}</label>
+          <input class="form-control" name="theme" placeholder="{{ '生肖/福字/花鸟…' if lang=='zh' else 'zodiac / Fu / flowers…' }}" disabled>
+          <div class="small text-secondary mt-1">
+            {{ "（演示：主题字段可在正式版启用）" if lang=="zh" else "(Demo: theme field can be enabled in production)" }}
+          </div>
+        </div>
+        <div class="col-12">
+          <label class="form-label small">{{ "需求说明" if lang=="zh" else "Your message" }}</label>
+          <textarea class="form-control" name="message" rows="4" placeholder="{{ '例如：想做 30cm 圆福窗花，春节前到货…' if lang=='zh' else 'e.g., 30cm round Fu, deliver before Lunar New Year…' }}" required></textarea>
+        </div>
+        <div class="col-12 d-flex justify-content-end">
+          <button class="btn btn-primary" type="submit">{{ "发送留言" if lang=="zh" else "Send" }}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

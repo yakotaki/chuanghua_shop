@@ -1,0 +1,23 @@
+{
+  "orders": [
+    {
+      "id": "CH2601098d8432",
+      "created_at": "2026-01-09T06:53:32.305378",
+      "buyer_name": "x",
+      "buyer_contact": "xxx",
+      "address": "x",
+      "note": "x",
+      "items": [
+        {
+          "slug": "chunfu_ox",
+          "qty": 1,
+          "price": 39.0,
+          "line_total": 39.0
+        }
+      ],
+      "total": 39.0,
+      "status": "new",
+      "lang": "en"
+    }
+  ]
+}

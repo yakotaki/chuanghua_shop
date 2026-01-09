@@ -1,0 +1,103 @@
+:root{
+  --paper-red: #b91c1c;
+  --paper-red-2: #7f1d1d;
+  --paper-cream: #fff7ed;
+  --paper-cream-2: #fffbf5;
+  --ink: #111827;
+}
+
+.paper-bg{
+  background:
+    radial-gradient(circle at 20% 10%, rgba(185,28,28,0.08), transparent 40%),
+    radial-gradient(circle at 80% 15%, rgba(185,28,28,0.06), transparent 45%),
+    radial-gradient(circle at 30% 80%, rgba(185,28,28,0.05), transparent 50%),
+    linear-gradient(180deg, var(--paper-cream), var(--paper-cream-2));
+  color: var(--ink);
+}
+
+.paper-nav{
+  background: linear-gradient(90deg, var(--paper-red), var(--paper-red-2));
+}
+
+.paper-hero{
+  background: linear-gradient(180deg, rgba(185,28,28,0.12), rgba(255,255,255,0));
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.paper-card{
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.paper-badge{
+  display:inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(185,28,28,0.10);
+  border: 1px solid rgba(185,28,28,0.15);
+  color: var(--paper-red-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.paper-product{
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+}
+
+.paper-product .card-img-top{
+  height: 220px;
+  object-fit: cover;
+  background: #fff;
+}
+
+.paper-placeholder{
+  height: 220px;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(185,28,28,0.06),
+    rgba(185,28,28,0.06) 10px,
+    rgba(185,28,28,0.03) 10px,
+    rgba(185,28,28,0.03) 20px
+  );
+}
+
+.paper-price{
+  font-weight: 800;
+  color: var(--paper-red-2);
+}
+
+.paper-price-lg{
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--paper-red-2);
+}
+
+.paper-thumb{
+  width: 70px;
+  height: 55px;
+  object-fit: cover;
+}
+
+.paper-check{
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: rgba(34,197,94,0.15);
+  border: 1px solid rgba(34,197,94,0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: rgb(21,128,61);
+  margin: 0 auto;
+}
+
+/* Fix bootstrap toggler icon if overridden */
+.navbar-toggler-icon{
+  filter: invert(1);
+}

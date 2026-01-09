@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "slug": "chunfu_ox",
+      "title_zh": "春福·牛窗花",
+      "title_en": "Spring Fortune Ox",
+      "price": 39,
+      "active": true,
+      "images": [
+        "products/chunfu_ox/1.jpg",
+        "products/chunfu_ox/2.jpg",
+        "products/chunfu_ox/3.jpg"
+      ],
+      "short_zh": "喜庆吉祥，适合春节装饰",
+      "short_en": "Festive and auspicious for Lunar New Year decor",
+      "desc_zh": "更长的文案…",
+      "desc_en": "Longer copy…"
+    },
+    {
+      "slug": "fu_round",
+      "title_zh": "圆福窗花",
+      "title_en": "Round Fu Paper-cut",
+      "price": 39,
+      "active": true,
+      "images": [
+        "products/fu_round/1.jpg",
+        "products/fu_round/2.jpg",
+        "products/fu_round/3.jpg"
+      ],
+      "short_zh": "喜庆吉祥，适合春节门窗装饰",
+      "short_en": "Auspicious “Fu”, perfect for Lunar New Year decor",
+      "desc_zh": "更长的中文描述…",
+      "desc_en": "Longer English description…"
+    }
+  ]
+}

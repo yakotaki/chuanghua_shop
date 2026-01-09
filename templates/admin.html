@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+{% block title %}{{ "后台" if lang=="zh" else "Admin" }}{% endblock %}
+
+{% block content %}
+<h2 class="h5 fw-bold mb-3">{{ "后台管理（演示）" if lang=="zh" else "Admin (Demo)" }}</h2>
+
+<div class="paper-card p-3 mb-4">
+  <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+    <div class="text-secondary small">
+      {% if lang=="zh" %}
+        提示：URL 中带 k={{ k }} 才可访问后台（演示）。
+      {% else %}
+        Note: admin requires k={{ k }} in the URL (demo).
+      {% endif %}
+    </div>
+    <a class="btn btn-sm btn-outline-primary"
+       href="{{ url_for('export_orders', k=k) }}">
+      {{ "导出订单 CSV" if lang=="zh" else "Export orders CSV" }}
+    </a>
+  </div>
+</div>
+
+<ul class="nav nav-tabs" id="adminTabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-products" type="button">
+      {{ "商品" if lang=="zh" else "Products" }}
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-orders" type="button">
+      {{ "订单" if lang=="zh" else "Orders" }} ({{ orders|length }})
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-messages" type="button">
+      {{ "留言" if lang=="zh" else "Messages" }} ({{ messages|length }})
+    </button>
+  </li>
+</ul>
+
+<div class="tab-content border border-top-0 bg-white p-3 rounded-bottom">
+
+  <!-- Products -->
+  <div class="tab-pane fade show active" id="tab-products">
+    <div class="paper-card p-3 mb-3">
+      <div class="fw-semibold mb-2">{{ "添加商品" if lang=="zh" else "Add product" }}</div>
+      <form method="post" action="{{ url_for('admin_product', lang=lang, k=k) }}">
+        <input type="hidden" name="action" value="add">
+
+        <div class="row g-2">
+          <div class="col-md-3">
+            <label class="form-label small">slug</label>
+            <input class="form-control" name="slug" placeholder="fu_round">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label small">{{ "价格" if lang=="zh" else "Price" }}</label>
+            <input class="form-control" name="price" type="number" step="1" value="39">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label small">{{ "中文标题" if lang=="zh" else "ZH title" }}</label>
+            <input class="form-control" name="title_zh" placeholder="圆福窗花">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label small">{{ "英文标题" if lang=="zh" else "EN title" }}</label>
+            <input class="form-control" name="title_en" placeholder="Round Fu Paper-cut">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label small">{{ "中文短描述" if lang=="zh" else "ZH short" }}</label>
+            <input class="form-control" name="short_zh">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label small">{{ "英文短描述" if lang=="zh" else "EN short" }}</label>
+            <input class="form-control" name="short_en">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label small">{{ "中文详情" if lang=="zh" else "ZH desc" }}</label>
+            <textarea class="form-control" name="desc_zh" rows="3"></textarea>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label small">{{ "英文详情" if lang=="zh" else "EN desc" }}</label>
+            <textarea class="form-control" name="desc_en" rows="3"></textarea>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label small">
+              images (comma separated, relative to static/img/)
+            </label>
+            <input class="form-control" name="images"
+                   placeholder="products/fu_round/1.jpg, products/fu_round/2.jpg">
+            <div class="small text-secondary mt-1">
+              {% if lang=="zh" %}
+                例：static/img/products/fu_round/1.jpg 对应填写 products/fu_round/1.jpg
+              {% else %}
+                Example: static/img/products/fu_round/1.jpg → write products/fu_round/1.jpg
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="col-12 d-flex justify-content-end">
+            <button class="btn btn-primary" type="submit">{{ "添加" if lang=="zh" else "Add" }}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="fw-semibold mb-2">{{ "商品列表" if lang=="zh" else "Product list" }}</div>
+
+    {% for p in products %}
+      <div class="paper-card p-3 mb-2">
+        <div class="d-flex flex-wrap gap-2 justify-content-between align-items-start">
+          <div>
+            <div class="fw-semibold">
+              {{ p.slug }} — {{ p.title_zh if lang=="zh" else p.title_en }}
+              {% if not p.active %}
+                <span class="badge text-bg-secondary ms-1">{{ "已隐藏" if lang=="zh" else "Hidden" }}</span>
+              {% endif %}
+            </div>
+            <div class="small text-secondary">¥{{ p.price }}</div>
+          </div>
+
+          <div class="d-flex gap-2">
+            <form method="post" action="{{ url_for('admin_product', lang=lang, k=k) }}">
+              <input type="hidden" name="action" value="toggle">
+              <input type="hidden" name="slug" value="{{ p.slug }}">
+              <button class="btn btn-sm btn-outline-secondary" type="submit">
+                {{ "显示/隐藏" if lang=="zh" else "Toggle" }}
+              </button>
+            </form>
+
+            <form method="post" action="{{ url_for('admin_product', lang=lang, k=k) }}" class="js-confirm-delete">
+              <input type="hidden" name="action" value="delete">
+              <input type="hidden" name="slug" value="{{ p.slug }}">
+              <button class="btn btn-sm btn-outline-danger" type="submit">
+                {{ "删除" if lang=="zh" else "Delete" }}
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <form class="mt-3" method="post" action="{{ url_for('admin_product', lang=lang, k=k) }}">
+          <input type="hidden" name="action" value="save">
+          <input type="hidden" name="slug" value="{{ p.slug }}">
+
+          <div class="row g-2">
+            <div class="col-md-2">
+              <label class="form-label small">{{ "价格" if lang=="zh" else "Price" }}</label>
+              <input class="form-control" name="price" type="number" step="1" value="{{ p.price }}">
+            </div>
+            <div class="col-md-5">
+              <label class="form-label small">{{ "中文标题" if lang=="zh" else "ZH title" }}</label>
+              <input class="form-control" name="title_zh" value="{{ p.title_zh }}">
+            </div>
+            <div class="col-md-5">
+              <label class="form-label small">{{ "英文标题" if lang=="zh" else "EN title" }}</label>
+              <input class="form-control" name="title_en" value="{{ p.title_en }}">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label small">{{ "中文短描述" if lang=="zh" else "ZH short" }}</label>
+              <input class="form-control" name="short_zh" value="{{ p.short_zh }}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label small">{{ "英文短描述" if lang=="zh" else "EN short" }}</label>
+              <input class="form-control" name="short_en" value="{{ p.short_en }}">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label small">{{ "中文详情" if lang=="zh" else "ZH desc" }}</label>
+              <textarea class="form-control" name="desc_zh" rows="3">{{ p.desc_zh }}</textarea>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label small">{{ "英文详情" if lang=="zh" else "EN desc" }}</label>
+              <textarea class="form-control" name="desc_en" rows="3">{{ p.desc_en }}</textarea>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label small">images</label>
+              <input class="form-control" name="images" value="{{ (p.images or [])|join(', ') }}">
+            </div>
+
+            <div class="col-12 d-flex justify-content-end">
+              <button class="btn btn-sm btn-primary" type="submit">{{ "保存" if lang=="zh" else "Save" }}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Orders -->
+  <div class="tab-pane fade" id="tab-orders">
+    {% if orders|length == 0 %}
+      <div class="text-secondary">{{ "暂无订单" if lang=="zh" else "No orders yet." }}</div>
+    {% else %}
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead>
+            <tr class="small text-secondary">
+              <th>ID</th>
+              <th>{{ "时间" if lang=="zh" else "Time" }}</th>
+              <th>{{ "客户" if lang=="zh" else "Buyer" }}</th>
+              <th>{{ "联系方式" if lang=="zh" else "Contact" }}</th>
+              <th>{{ "合计" if lang=="zh" else "Total" }}</th>
+              <th>{{ "明细" if lang=="zh" else "Items" }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for o in orders %}
+              <tr>
+                <td class="fw-semibold">{{ o.id }}</td>
+                <td class="small text-secondary">{{ o.created_at }}</td>
+                <td>{{ o.buyer_name }}</td>
+                <td>{{ o.buyer_contact }}</td>
+                <td class="fw-semibold">¥{{ "%.2f"|format(o.total or 0) }}</td>
+                <td class="small text-secondary">
+                  {% for it in (o["items"] or []) %}
+                    div>{{ it["slug"] }} × {{ it["qty"] }}</div>
+                  {% endfor %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Messages -->
+  <div class="tab-pane fade" id="tab-messages">
+    {% if messages|length == 0 %}
+      <div class="text-secondary">{{ "暂无留言" if lang=="zh" else "No messages yet." }}</div>
+    {% else %}
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead>
+            <tr class="small text-secondary">
+              <th>{{ "时间" if lang=="zh" else "Time" }}</th>
+              <th>{{ "姓名" if lang=="zh" else "Name" }}</th>
+              <th>{{ "联系方式" if lang=="zh" else "Contact" }}</th>
+              <th>{{ "内容" if lang=="zh" else "Message" }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for m in messages %}
+              <tr>
+                <td class="small text-secondary">{{ m.created_at }}</td>
+                <td>{{ m.name }}</td>
+                <td>{{ m.contact }}</td>
+                <td style="white-space:pre-wrap;">{{ m.message }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

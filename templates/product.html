@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}{{ p.title_zh if lang=="zh" else p.title_en }}{% endblock %}
+
+{% block content %}
+
+<div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+  <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('index', lang=lang) }}">
+    {{ "← 返回目录" if lang=="zh" else "← Back" }}
+  </a>
+  <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('cart', lang=lang) }}">
+    {{ "查看购物车" if lang=="zh" else "View cart" }}
+  </a>
+</div>
+
+<div class="row g-4">
+  <div class="col-lg-6">
+    {% set imgs = p.images or [] %}
+    {% if imgs|length > 0 %}
+      <div id="gallery" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner rounded overflow-hidden border">
+          {% for img in imgs %}
+            <div class="carousel-item {% if loop.index0==0 %}active{% endif %}">
+              <img class="d-block w-100" src="{{ url_for('static', filename=STATIC_IMG_PREFIX + img) }}" alt="">
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if imgs|length > 1 %}
+          <button class="carousel-control-prev" type="button" data-bs-target="#gallery" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#gallery" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        {% endif %}
+      </div>
+
+      {% if imgs|length > 1 %}
+        <div class="d-flex flex-wrap gap-2 mt-2">
+          {% for img in imgs %}
+            <img class="paper-thumb border rounded"
+                 src="{{ url_for('static', filename=STATIC_IMG_PREFIX + img) }}"
+                 alt="">
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="paper-placeholder d-flex align-items-center justify-content-center rounded border" style="height:320px;">
+        <div class="text-secondary small">{{ "暂无图片" if lang=="zh" else "No images" }}</div>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="col-lg-6">
+    <h2 class="h4 fw-bold mb-1">{{ p.title_zh if lang=="zh" else p.title_en }}</h2>
+    <div class="text-secondary mb-2">{{ p.short_zh if lang=="zh" else p.short_en }}</div>
+
+    <div class="paper-price-lg mb-3">¥{{ p.price }}</div>
+
+    <div class="paper-card p-3 mb-3">
+      <div class="fw-semibold mb-1">{{ "作品介绍" if lang=="zh" else "Description" }}</div>
+      <div class="small text-secondary">
+        {{ p.desc_zh if lang=="zh" else p.desc_en }}
+      </div>
+    </div>
+
+    <form class="paper-card p-3" method="post" action="{{ url_for('cart_add', lang=lang) }}">
+      <input type="hidden" name="slug" value="{{ p.slug }}">
+      <div class="d-flex gap-2 align-items-center">
+        <div style="width:110px;">
+          <label class="form-label small mb-1">{{ "数量" if lang=="zh" else "Qty" }}</label>
+          <input class="form-control" type="number" name="qty" value="1" min="1" max="99">
+        </div>
+        <div class="flex-grow-1">
+          <label class="form-label small mb-1">&nbsp;</label>
+          <button class="btn btn-primary w-100" type="submit">
+            {{ "加入购物车" if lang=="zh" else "Add to cart" }}
+          </button>
+        </div>
+      </div>
+
+      <div class="small text-secondary mt-2">
+        {% if lang=="zh" %}
+          演示站不接真实付款。提交订单后，卖家可在后台查看并联系确认。
+        {% else %}
+          Demo site does not process real payments. After checkout, seller can review and confirm in admin.
+        {% endif %}
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

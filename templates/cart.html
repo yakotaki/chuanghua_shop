@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}{{ "购物车" if lang=="zh" else "Cart" }}{% endblock %}
+
+{% block content %}
+
+<h2 class="h5 fw-bold mb-3">{{ "购物车" if lang=="zh" else "Cart" }}</h2>
+
+{% if items|length == 0 %}
+  <div class="paper-card p-4 text-center">
+    <div class="text-secondary">{{ "购物车为空" if lang=="zh" else "Your cart is empty." }}</div>
+    <a class="btn btn-primary mt-3" href="{{ url_for('index', lang=lang) }}">{{ "去选购" if lang=="zh" else "Browse" }}</a>
+  </div>
+{% else %}
+  <form method="post" action="{{ url_for('cart_update', lang=lang) }}">
+    <div class="paper-card p-3">
+      <div class="table-responsive">
+        <table class="table align-middle mb-0">
+          <thead>
+            <tr class="small text-secondary">
+              <th>{{ "商品" if lang=="zh" else "Item" }}</th>
+              <th style="width:120px;">{{ "数量" if lang=="zh" else "Qty" }}</th>
+              <th style="width:120px;">{{ "单价" if lang=="zh" else "Price" }}</th>
+              <th style="width:140px;">{{ "小计" if lang=="zh" else "Subtotal" }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for it in items %}
+              <tr>
+                <td>
+                  <div class="fw-semibold">{{ it.p.title_zh if lang=="zh" else it.p.title_en }}</div>
+                  <div class="small text-secondary">{{ it.p.short_zh if lang=="zh" else it.p.short_en }}</div>
+                </td>
+                <td>
+                  <input class="form-control" type="number" min="0" max="99"
+                         name="qty_{{ it.slug }}" value="{{ it.qty }}">
+                  <div class="small text-secondary mt-1">
+                    {{ "设为 0 删除" if lang=="zh" else "Set 0 to remove" }}
+                  </div>
+                </td>
+                <td>¥{{ it.price }}</td>
+                <td class="fw-semibold">¥{{ "%.2f"|format(it.line_total) }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mt-3">
+        <div class="fw-bold">
+          {{ "合计：" if lang=="zh" else "Total:" }} ¥{{ "%.2f"|format(total) }}
+        </div>
+        <div class="d-flex gap-2">
+          <a class="btn btn-outline-secondary" href="{{ url_for('index', lang=lang) }}">
+            {{ "继续选购" if lang=="zh" else "Continue shopping" }}
+          </a>
+          <button class="btn btn-outline-primary" type="submit">
+            {{ "更新购物车" if lang=="zh" else "Update cart" }}
+          </button>
+          <a class="btn btn-primary" href="{{ url_for('checkout', lang=lang) }}">
+            {{ "去结算" if lang=="zh" else "Checkout" }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </form>
+{% endif %}
+
+{% endblock %}

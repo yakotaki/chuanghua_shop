@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ "订单已提交" if lang=="zh" else "Order submitted" }}{% endblock %}
+
+{% block content %}
+<div class="paper-card p-4 text-center">
+  <div class="paper-check mb-2">✓</div>
+  <h2 class="h5 fw-bold mb-2">{{ "订单已提交" if lang=="zh" else "Order submitted" }}</h2>
+  <div class="text-secondary mb-2">
+    {{ "订单编号：" if lang=="zh" else "Order ID:" }} <span class="fw-semibold">{{ order_id }}</span>
+  </div>
+
+  <div class="small text-secondary mb-4">
+    {% if lang=="zh" %}
+      演示站不会收款。卖家可在后台查看订单，并通过你填写的联系方式进行确认。
+    {% else %}
+      Demo does not charge payments. Seller can review the order in admin and confirm via your contact details.
+    {% endif %}
+  </div>
+
+  <div class="d-flex flex-wrap gap-2 justify-content-center">
+    <a class="btn btn-primary" href="{{ url_for('index', lang=lang) }}">{{ "返回首页" if lang=="zh" else "Back to home" }}</a>
+    <a class="btn btn-outline-secondary" href="{{ url_for('cart', lang=lang) }}">{{ "查看购物车" if lang=="zh" else "View cart" }}</a>
+    <a class="btn btn-outline-warning" href="{{ url_for('admin', lang=lang, k='demo') }}">
+      {{ "查看后台（演示）" if lang=="zh" else "Admin (demo)" }}
+    </a>
+  </div>
+</div>
+{% endblock %}

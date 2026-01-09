@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}{{ "结算" if lang=="zh" else "Checkout" }}{% endblock %}
+
+{% block content %}
+<h2 class="h5 fw-bold mb-3">{{ "结算" if lang=="zh" else "Checkout" }}</h2>
+
+<div class="row g-4">
+  <div class="col-lg-7">
+    <div class="paper-card p-3">
+      <div class="fw-semibold mb-2">{{ "收货信息" if lang=="zh" else "Shipping info" }}</div>
+
+      <form method="post" action="{{ url_for('checkout', lang=lang) }}">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label small">{{ "姓名" if lang=="zh" else "Name" }}</label>
+            <input class="form-control" name="buyer_name" value="{{ form.get('buyer_name','') }}" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label small">{{ "联系方式" if lang=="zh" else "Contact" }}</label>
+            <input class="form-control" name="buyer_contact" value="{{ form.get('buyer_contact','') }}" placeholder="{{ '微信/手机号/邮箱' if lang=='zh' else 'WeChat/Phone/Email' }}" required>
+          </div>
+          <div class="col-12">
+            <label class="form-label small">{{ "地址（可选）" if lang=="zh" else "Address (optional)" }}</label>
+            <input class="form-control" name="address" value="{{ form.get('address','') }}">
+          </div>
+          <div class="col-12">
+            <label class="form-label small">{{ "备注（可选）" if lang=="zh" else "Note (optional)" }}</label>
+            <textarea class="form-control" name="note" rows="3">{{ form.get('note','') }}</textarea>
+          </div>
+          <div class="col-12 d-flex gap-2 justify-content-end">
+            <a class="btn btn-outline-secondary" href="{{ url_for('cart', lang=lang) }}">{{ "返回购物车" if lang=="zh" else "Back to cart" }}</a>
+            <button class="btn btn-primary" type="submit">{{ "提交订单" if lang=="zh" else "Place order" }}</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="small text-secondary mt-3">
+        {% if lang=="zh" %}
+          演示站：提交后会生成订单编号，卖家可在后台查看并联系确认。
+        {% else %}
+          Demo: after submission, an order ID is generated. Seller can review and confirm in admin.
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="paper-card p-3">
+      <div class="fw-semibold mb-2">{{ "订单摘要" if lang=="zh" else "Order summary" }}</div>
+      <ul class="list-group list-group-flush">
+        {% for it in items %}
+          <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+            <div class="small text-secondary">{{ it.slug }} × {{ it.qty }}</div>
+            <div class="fw-semibold">¥{{ "%.2f"|format(it.line_total) }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <div class="fw-bold">{{ "合计" if lang=="zh" else "Total" }}</div>
+        <div class="fw-bold">¥{{ "%.2f"|format(total) }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
