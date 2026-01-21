@@ -1,36 +1,500 @@
 {
   "products": [
     {
-      "slug": "chunfu_ox",
-      "title_zh": "春福·牛窗花",
-      "title_en": "Spring Fortune Ox",
+      "slug": "fu_round_classic",
+      "title_zh": "圆福·经典窗花",
+      "title_en": "Classic Round Fu Paper-cut",
       "price": 39,
       "active": true,
       "images": [
-        "products/chunfu_ox/1.jpg",
-        "products/chunfu_ox/2.jpg",
-        "products/chunfu_ox/3.jpg"
+        "products/fu_round_classic/1.jpg",
+        "products/fu_round_classic/2.jpg",
+        "products/fu_round_classic/3.jpg"
       ],
-      "short_zh": "喜庆吉祥，适合春节装饰",
-      "short_en": "Festive and auspicious for Lunar New Year decor",
-      "desc_zh": "更长的文案…",
-      "desc_en": "Longer copy…"
+      "short_zh": "圆形福字，百搭耐看，适合门窗与客厅。",
+      "short_en": "A timeless round Fu for windows and living rooms.",
+      "desc_zh": "经典圆福构图，线条干净，适合新年与乔迁装饰。可定制尺寸与配色。",
+      "desc_en": "Clean classic round Fu composition for Lunar New Year or housewarming. Custom sizes/colors available."
     },
     {
-      "slug": "fu_round",
-      "title_zh": "圆福窗花",
-      "title_en": "Round Fu Paper-cut",
-      "price": 39,
+      "slug": "fu_square_gate",
+      "title_zh": "方福·门贴窗花",
+      "title_en": "Square Fu Door Sticker",
+      "price": 35,
       "active": true,
       "images": [
-        "products/fu_round/1.jpg",
-        "products/fu_round/2.jpg",
-        "products/fu_round/3.jpg"
+        "products/fu_square_gate/1.jpg",
+        "products/fu_square_gate/2.jpg",
+        "products/fu_square_gate/3.jpg"
       ],
-      "short_zh": "喜庆吉祥，适合春节门窗装饰",
-      "short_en": "Auspicious “Fu”, perfect for Lunar New Year decor",
-      "desc_zh": "更长的中文描述…",
-      "desc_en": "Longer English description…"
+      "short_zh": "方形更稳重，适合大门与玄关。",
+      "short_en": "A stable square Fu for doorways and entry halls.",
+      "desc_zh": "方福寓意“稳稳的福气”。适合贴门、玄关玻璃或礼盒封面。",
+      "desc_en": "Square Fu symbolizes steady blessings. Great for doors, glass entryways, and gift packaging."
+    },
+    {
+      "slug": "fu_inverted",
+      "title_zh": "倒福·到福窗花",
+      "title_en": "Inverted Fu (Blessings Arrive)",
+      "price": 35,
+      "active": true,
+      "images": [
+        "products/fu_inverted/1.jpg",
+        "products/fu_inverted/2.jpg",
+        "products/fu_inverted/3.jpg"
+      ],
+      "short_zh": "“福倒了=福到了”，节日氛围拉满。",
+      "short_en": "Inverted Fu: a festive “blessings arrive” tradition.",
+      "desc_zh": "适合春节大门、窗户或店铺玻璃。可做大号醒目款。",
+      "desc_en": "Perfect for Lunar New Year doors/windows or shopfront glass. Available in bold larger sizes."
+    },
+    {
+      "slug": "zodiac_rat",
+      "title_zh": "生肖·鼠窗花",
+      "title_en": "Zodiac Rat Paper-cut",
+      "price": 49,
+      "active": true,
+      "images": [
+        "products/zodiac_rat/1.jpg",
+        "products/zodiac_rat/2.jpg",
+        "products/zodiac_rat/3.jpg"
+      ],
+      "short_zh": "生肖系列，适合送礼与收藏。",
+      "short_en": "Zodiac series—great for gifts and collection.",
+      "desc_zh": "生肖鼠搭配祥云与花纹边框，适合新年、生日、开业祝福。",
+      "desc_en": "Zodiac rat with cloud motifs and floral border—ideal for New Year, birthdays, and grand openings."
+    },
+    {
+      "slug": "zodiac_ox",
+      "title_zh": "生肖·牛窗花",
+      "title_en": "Zodiac Ox Paper-cut",
+      "price": 49,
+      "active": true,
+      "images": [
+        "products/zodiac_ox/1.jpg",
+        "products/zodiac_ox/2.jpg",
+        "products/zodiac_ox/3.jpg"
+      ],
+      "short_zh": "牛气满满，寓意踏实丰收。",
+      "short_en": "Ox motif for diligence and abundance.",
+      "desc_zh": "牛与稻穗/祥云组合，适合餐厅、客厅与店铺门面。",
+      "desc_en": "Ox paired with grain/cloud motifs—fits dining areas, living rooms, and storefronts."
+    },
+    {
+      "slug": "zodiac_tiger",
+      "title_zh": "生肖·虎窗花",
+      "title_en": "Zodiac Tiger Paper-cut",
+      "price": 49,
+      "active": true,
+      "images": [
+        "products/zodiac_tiger/1.jpg",
+        "products/zodiac_tiger/2.jpg",
+        "products/zodiac_tiger/3.jpg"
+      ],
+      "short_zh": "虎虎生威，气场强。",
+      "short_en": "Bold tiger motif with strong presence.",
+      "desc_zh": "适合挂在玄关或办公室，寓意勇猛与突破。",
+      "desc_en": "Great for entryways or offices—symbolizes courage and breakthroughs."
+    },
+    {
+      "slug": "zodiac_rabbit",
+      "title_zh": "生肖·兔窗花",
+      "title_en": "Zodiac Rabbit Paper-cut",
+      "price": 49,
+      "active": true,
+      "images": [
+        "products/zodiac_rabbit/1.jpg",
+        "products/zodiac_rabbit/2.jpg",
+        "products/zodiac_rabbit/3.jpg"
+      ],
+      "short_zh": "温柔灵动，适合亲子与卧室。",
+      "short_en": "Gentle rabbit motif—nice for bedrooms and families.",
+      "desc_zh": "兔与花枝搭配，整体更柔和。适合婚房/宝宝房装饰。",
+      "desc_en": "Rabbit with floral branches for a softer look—ideal for wedding rooms or nurseries."
+    },
+    {
+      "slug": "zodiac_dragon",
+      "title_zh": "生肖·龙窗花",
+      "title_en": "Zodiac Dragon Paper-cut",
+      "price": 59,
+      "active": true,
+      "images": [
+        "products/zodiac_dragon/1.jpg",
+        "products/zodiac_dragon/2.jpg",
+        "products/zodiac_dragon/3.jpg"
+      ],
+      "short_zh": "龙腾盛世，适合大场景装饰。",
+      "short_en": "Majestic dragon—best for statement decor.",
+      "desc_zh": "细节丰富，适合大门/落地窗。可做金红搭配增强质感。",
+      "desc_en": "Highly detailed—great for large doors/windows. Optional red+gold style for premium feel."
+    },
+    {
+      "slug": "zodiac_snake",
+      "title_zh": "生肖·蛇窗花",
+      "title_en": "Zodiac Snake Paper-cut",
+      "price": 49,
+      "active": true,
+      "images": [
+        "products/zodiac_snake/1.jpg",
+        "products/zodiac_snake/2.jpg",
+        "products/zodiac_snake/3.jpg"
+      ],
+      "short_zh": "灵动曲线，设计感强。",
+      "short_en": "Elegant curves with modern design flair.",
+      "desc_zh": "蛇形线条与纹样边框结合，适合现代家居风格。",
+      "desc_en": "Snake curves plus patterned border—fits modern interiors."
+    },
+    {
+      "slug": "zodiac_horse",
+      "title_zh": "生肖·马窗花",
+      "title_en": "Zodiac Horse Paper-cut",
+      "price": 49,
+      "active": true,
+      "images": [
+        "products/zodiac_horse/1.jpg",
+        "products/zodiac_horse/2.jpg",
+        "products/zodiac_horse/3.jpg"
+      ],
+      "short_zh": "马到成功，适合开业与升职祝福。",
+      "short_en": "“Success arrives” horse—great for business wishes.",
+      "desc_zh": "马与祥云/铜钱纹结合，适合办公室与店铺。",
+      "desc_en": "Horse with cloud/coin motifs—ideal for offices and shops."
+    },
+    {
+      "slug": "zodiac_goat",
+      "title_zh": "生肖·羊窗花",
+      "title_en": "Zodiac Goat Paper-cut",
+      "price": 49,
+      "active": true,
+      "images": [
+        "products/zodiac_goat/1.jpg",
+        "products/zodiac_goat/2.jpg",
+        "products/zodiac_goat/3.jpg"
+      ],
+      "short_zh": "三阳开泰，寓意好运开启。",
+      "short_en": "Goat motif for “good fortune begins.”",
+      "desc_zh": "适合新年、乔迁、婚礼等喜庆场合。",
+      "desc_en": "Perfect for New Year, housewarming, weddings, and celebrations."
+    },
+    {
+      "slug": "zodiac_monkey",
+      "title_zh": "生肖·猴窗花",
+      "title_en": "Zodiac Monkey Paper-cut",
+      "price": 49,
+      "active": true,
+      "images": [
+        "products/zodiac_monkey/1.jpg",
+        "products/zodiac_monkey/2.jpg",
+        "products/zodiac_monkey/3.jpg"
+      ],
+      "short_zh": "灵巧活泼，适合儿童房。",
+      "short_en": "Playful monkey—great for kids’ rooms.",
+      "desc_zh": "猴与桃/花纹组合，寓意聪明与长寿。",
+      "desc_en": "Monkey with peach/floral motifs—symbolizes cleverness and longevity."
+    },
+    {
+      "slug": "zodiac_dog",
+      "title_zh": "生肖·狗窗花",
+      "title_en": "Zodiac Dog Paper-cut",
+      "price": 49,
+      "active": true,
+      "images": [
+        "products/zodiac_dog/1.jpg",
+        "products/zodiac_dog/2.jpg",
+        "products/zodiac_dog/3.jpg"
+      ],
+      "short_zh": "守护与忠诚，适合家庭。",
+      "short_en": "Symbol of loyalty and protection.",
+      "desc_zh": "狗与平安纹样搭配，适合客厅/玄关。",
+      "desc_en": "Dog with peace motifs—ideal for living rooms and entryways."
+    },
+    {
+      "slug": "zodiac_pig",
+      "title_zh": "生肖·猪窗花",
+      "title_en": "Zodiac Pig Paper-cut",
+      "price": 49,
+      "active": true,
+      "images": [
+        "products/zodiac_pig/1.jpg",
+        "products/zodiac_pig/2.jpg",
+        "products/zodiac_pig/3.jpg"
+      ],
+      "short_zh": "福气与丰盛，寓意安稳生活。",
+      "short_en": "A symbol of comfort and abundance.",
+      "desc_zh": "猪与花纹边框组合，适合新年与乔迁。",
+      "desc_en": "Pig with floral border—great for New Year and housewarming."
+    },
+    {
+      "slug": "peony_bloom",
+      "title_zh": "牡丹·富贵窗花",
+      "title_en": "Peony Prosperity Paper-cut",
+      "price": 45,
+      "active": true,
+      "images": [
+        "products/peony_bloom/1.jpg",
+        "products/peony_bloom/2.jpg",
+        "products/peony_bloom/3.jpg"
+      ],
+      "short_zh": "牡丹象征富贵，适合客厅主位。",
+      "short_en": "Peony symbolizes prosperity—perfect for living rooms.",
+      "desc_zh": "花瓣层次感强，适合配灯光与玻璃窗展示。",
+      "desc_en": "Layered petals look stunning against light and glass windows."
+    },
+    {
+      "slug": "lotus_peace",
+      "title_zh": "莲花·清雅窗花",
+      "title_en": "Lotus Serenity Paper-cut",
+      "price": 45,
+      "active": true,
+      "images": [
+        "products/lotus_peace/1.jpg",
+        "products/lotus_peace/2.jpg",
+        "products/lotus_peace/3.jpg"
+      ],
+      "short_zh": "清雅莲花，适合书房与茶室。",
+      "short_en": "Elegant lotus—ideal for study rooms and tea spaces.",
+      "desc_zh": "莲花寓意清净与平安，线条简洁耐看。",
+      "desc_en": "Lotus represents serenity and peace with clean, timeless lines."
+    },
+    {
+      "slug": "plum_blossom",
+      "title_zh": "梅花·傲雪窗花",
+      "title_en": "Plum Blossom Paper-cut",
+      "price": 45,
+      "active": true,
+      "images": [
+        "products/plum_blossom/1.jpg",
+        "products/plum_blossom/2.jpg",
+        "products/plum_blossom/3.jpg"
+      ],
+      "short_zh": "梅花坚韧，适合冬季与新年。",
+      "short_en": "Plum blossom for resilience—perfect in winter/New Year.",
+      "desc_zh": "梅枝与花朵结合，适合窗边与玄关小景。",
+      "desc_en": "Branch-and-blossom composition fits windows and small entry displays."
+    },
+    {
+      "slug": "bamboo_integrity",
+      "title_zh": "竹影·君子窗花",
+      "title_en": "Bamboo Integrity Paper-cut",
+      "price": 45,
+      "active": true,
+      "images": [
+        "products/bamboo_integrity/1.jpg",
+        "products/bamboo_integrity/2.jpg",
+        "products/bamboo_integrity/3.jpg"
+      ],
+      "short_zh": "竹寓意节节高升，适合办公室。",
+      "short_en": "Bamboo for steady growth—great for offices.",
+      "desc_zh": "竹叶层次分明，适合现代极简风。",
+      "desc_en": "Crisp bamboo layers suit modern minimalist interiors."
+    },
+    {
+      "slug": "orchid_elegance",
+      "title_zh": "兰花·雅致窗花",
+      "title_en": "Orchid Elegance Paper-cut",
+      "price": 45,
+      "active": true,
+      "images": [
+        "products/orchid_elegance/1.jpg",
+        "products/orchid_elegance/2.jpg",
+        "products/orchid_elegance/3.jpg"
+      ],
+      "short_zh": "兰花清雅，适合卧室与书房。",
+      "short_en": "Orchid motif for refined elegance.",
+      "desc_zh": "线条柔和、留白充足，适合浅色墙面。",
+      "desc_en": "Soft lines with generous negative space—beautiful on light walls."
+    },
+    {
+      "slug": "chrysanthemum_longlife",
+      "title_zh": "菊花·长寿窗花",
+      "title_en": "Chrysanthemum Longevity Paper-cut",
+      "price": 45,
+      "active": true,
+      "images": [
+        "products/chrysanthemum_longlife/1.jpg",
+        "products/chrysanthemum_longlife/2.jpg",
+        "products/chrysanthemum_longlife/3.jpg"
+      ],
+      "short_zh": "菊花寓意长寿，适合长辈礼物。",
+      "short_en": "Chrysanthemum symbolizes longevity—great as a gift.",
+      "desc_zh": "适合重阳节、生日祝福与家庭装饰。",
+      "desc_en": "Ideal for birthdays, family decor, and seasonal celebrations."
+    },
+    {
+      "slug": "double_happiness",
+      "title_zh": "囍字·喜庆窗花",
+      "title_en": "Double Happiness Paper-cut",
+      "price": 42,
+      "active": true,
+      "images": [
+        "products/double_happiness/1.jpg",
+        "products/double_happiness/2.jpg",
+        "products/double_happiness/3.jpg"
+      ],
+      "short_zh": "婚礼必备，喜气十足。",
+      "short_en": "Wedding essential—joyful and festive.",
+      "desc_zh": "囍字搭配花纹边框，适合婚房、喜宴与伴手礼包装。",
+      "desc_en": "Double Happiness with floral border—perfect for wedding rooms, banquets, and gift packaging."
+    },
+    {
+      "slug": "wedding_pair_birds",
+      "title_zh": "喜鹊成双·婚礼窗花",
+      "title_en": "Paired Magpies Wedding Paper-cut",
+      "price": 55,
+      "active": true,
+      "images": [
+        "products/wedding_pair_birds/1.jpg",
+        "products/wedding_pair_birds/2.jpg",
+        "products/wedding_pair_birds/3.jpg"
+      ],
+      "short_zh": "成双成对，寓意良缘。",
+      "short_en": "Paired birds for a blessed union.",
+      "desc_zh": "喜鹊与花枝组合，适合婚礼布置与背景墙点缀。",
+      "desc_en": "Magpies with floral branches—ideal for wedding styling and backdrop accents."
+    },
+    {
+      "slug": "carp_abundance",
+      "title_zh": "锦鲤·年年有余",
+      "title_en": "Koi Abundance (Yearly Surplus)",
+      "price": 55,
+      "active": true,
+      "images": [
+        "products/carp_abundance/1.jpg",
+        "products/carp_abundance/2.jpg",
+        "products/carp_abundance/3.jpg"
+      ],
+      "short_zh": "锦鲤寓意富足，适合餐厅与店铺。",
+      "short_en": "Koi for abundance—great for dining areas and shops.",
+      "desc_zh": "双鱼/锦鲤构图，适合年节与开业庆祝。",
+      "desc_en": "Twin fish/koi composition for New Year and grand opening celebrations."
+    },
+    {
+      "slug": "crane_blessing",
+      "title_zh": "仙鹤·祥瑞窗花",
+      "title_en": "Crane Auspicious Paper-cut",
+      "price": 58,
+      "active": true,
+      "images": [
+        "products/crane_blessing/1.jpg",
+        "products/crane_blessing/2.jpg",
+        "products/crane_blessing/3.jpg"
+      ],
+      "short_zh": "仙鹤寓意吉祥与长寿。",
+      "short_en": "Crane symbolizes auspiciousness and longevity.",
+      "desc_zh": "适合送长辈或摆在书房、客厅的安静角落。",
+      "desc_en": "A thoughtful gift for elders, perfect for calm corners in studies/living rooms."
+    },
+    {
+      "slug": "pomegranate_manykids",
+      "title_zh": "石榴·多子多福",
+      "title_en": "Pomegranate Many Blessings",
+      "price": 52,
+      "active": true,
+      "images": [
+        "products/pomegranate_manykids/1.jpg",
+        "products/pomegranate_manykids/2.jpg",
+        "products/pomegranate_manykids/3.jpg"
+      ],
+      "short_zh": "石榴寓意多子多福，适合婚房与新家。",
+      "short_en": "Pomegranate for many blessings—great for new homes.",
+      "desc_zh": "果实裂开露籽的细节更显喜庆与生命力。",
+      "desc_en": "Seeds and split-fruit detail add lively, celebratory symbolism."
+    },
+    {
+      "slug": "lantern_festival",
+      "title_zh": "灯笼·元宵窗花",
+      "title_en": "Lantern Festival Paper-cut",
+      "price": 45,
+      "active": true,
+      "images": [
+        "products/lantern_festival/1.jpg",
+        "products/lantern_festival/2.jpg",
+        "products/lantern_festival/3.jpg"
+      ],
+      "short_zh": "灯笼元素，节日氛围浓。",
+      "short_en": "Lantern motif for strong festive vibes.",
+      "desc_zh": "适合元宵/春节布置，也适合店铺促销背景。",
+      "desc_en": "Ideal for Lantern Festival/New Year decor and shop promotion backdrops."
+    },
+    {
+      "slug": "spring_couplet_frame",
+      "title_zh": "春字·窗框装饰",
+      "title_en": "Spring Character Window Frame",
+      "price": 45,
+      "active": true,
+      "images": [
+        "products/spring_couplet_frame/1.jpg",
+        "products/spring_couplet_frame/2.jpg",
+        "products/spring_couplet_frame/3.jpg"
+      ],
+      "short_zh": "“春”字搭配边框，适合窗格。",
+      "short_en": "Spring character with border—great for window panes.",
+      "desc_zh": "边框可做成窗格比例，贴在玻璃上更有“老街年味”。",
+      "desc_en": "Border matches window-pane proportions for an authentic festive street vibe on glass."
+    },
+    {
+      "slug": "mountain_river",
+      "title_zh": "山水·中式窗花",
+      "title_en": "Landscape Ink-style Paper-cut",
+      "price": 69,
+      "active": true,
+      "images": [
+        "products/mountain_river/1.jpg",
+        "products/mountain_river/2.jpg",
+        "products/mountain_river/3.jpg"
+      ],
+      "short_zh": "山水意境，适合中式与新中式空间。",
+      "short_en": "Landscape mood—perfect for Chinese-style interiors.",
+      "desc_zh": "线条更细致，适合大窗展示或装框悬挂。",
+      "desc_en": "Fine details—great for large windows or framed wall display."
+    },
+    {
+      "slug": "city_shanghai",
+      "title_zh": "城市系列·上海窗花",
+      "title_en": "City Series: Shanghai Paper-cut",
+      "price": 79,
+      "active": true,
+      "images": [
+        "products/city_shanghai/1.jpg",
+        "products/city_shanghai/2.jpg",
+        "products/city_shanghai/3.jpg"
+      ],
+      "short_zh": "城市天际线剪影，现代礼物。",
+      "short_en": "Modern skyline silhouette—gift-ready.",
+      "desc_zh": "外滩/东方明珠元素，适合送朋友或做纪念品。",
+      "desc_en": "Bund/Oriental Pearl elements—great as souvenirs and modern gifts."
+    },
+    {
+      "slug": "city_beijing",
+      "title_zh": "城市系列·北京窗花",
+      "title_en": "City Series: Beijing Paper-cut",
+      "price": 79,
+      "active": true,
+      "images": [
+        "products/city_beijing/1.jpg",
+        "products/city_beijing/2.jpg",
+        "products/city_beijing/3.jpg"
+      ],
+      "short_zh": "北京元素：城楼/胡同/古建风。",
+      "short_en": "Beijing vibe: traditional architecture silhouettes.",
+      "desc_zh": "适合外宾礼物与城市纪念系列。",
+      "desc_en": "Excellent for gifts to international visitors and city memorabilia collections."
+    },
+    {
+      "slug": "pet_custom_silhouette",
+      "title_zh": "定制·宠物剪影窗花",
+      "title_en": "Custom Pet Silhouette Paper-cut",
+      "price": 99,
+      "active": true,
+      "images": [
+        "products/pet_custom_silhouette/1.jpg",
+        "products/pet_custom_silhouette/2.jpg",
+        "products/pet_custom_silhouette/3.jpg"
+      ],
+      "short_zh": "上传照片即可定制，独一无二。",
+      "short_en": "Unique custom from your photo.",
+      "desc_zh": "根据宠物照片提取轮廓并加入花纹边框，适合纪念与礼物。",
+      "desc_en": "We extract your pet’s outline from a photo and add a decorative border—perfect as a keepsake or gift."
     }
   ]
 }

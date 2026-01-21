@@ -215,7 +215,7 @@ def checkout():
             "address": address,
             "note": note,
             "line_items": snapshot,
-                "total": total,
+            "total": total,
             "status": "new",
             "lang": lang
         }
